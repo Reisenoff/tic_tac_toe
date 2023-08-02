@@ -30,8 +30,10 @@ The game continues until one of the players wins by having three of their symbol
 
 ## How to Run
 
-To start the game, simply run the game.py script:
-python main.py
+To start the game, simply run the __game.py__ script:
+```
+  python game.py
+```
 Follow the on-screen instructions to play the game. Enter the coordinates for your move as prompted, and the game will display the board after each move.
 
 ## License
