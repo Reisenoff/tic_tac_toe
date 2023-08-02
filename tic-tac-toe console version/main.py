@@ -52,7 +52,6 @@ def check_game_over() -> bool:
     return False
 
 
-
 def player_input():
     """обработка ввода игрока"""
     valid_move = False
@@ -96,12 +95,11 @@ def game():
         winner = 'Ничья'
     elif PLAYER_MOVE == 1:
         winner = 'победа O'
-    else: 
+    else:
         winner = 'победа X'
-
     print_board()
     print(f'Игра завершена, {winner}')
-    end = input('Нажмите Enter для выхода')
+    end = input('Нажмите Enter для выхода') # При конвертации программы в exe не позволит закрыться сразу после завершения
 
 if __name__ == '__main__':
     game()
