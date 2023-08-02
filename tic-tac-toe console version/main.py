@@ -31,27 +31,26 @@ def check_draw():
 
 def check_game_over() -> bool:
     """Проверка, закончилась ли игра, входные данные positions, возврат True/False"""
+    def check_line(a, b, c):
+        return a == b == c and a in ('X', 'O')
+
+    for i in range(3):
+        if check_line(positions[i][0], positions[i][1], positions[i][2]):
+            return True
+        if check_line(positions[0][i], positions[1][i], positions[2][i]):
+            return True
+
+    if check_line(positions[0][0], positions[1][1], positions[2][2]):
+        return True
+    if check_line(positions[0][2], positions[1][1], positions[2][0]):
+        return True
+
     draw = check_draw()
-    if positions[0][0] == positions[0][1] == positions[0][2] == ('X' or 'O'):
+    if draw:
         return True
-    elif positions[1][0] == positions[1][1] == positions[1][2] == ('X' or 'O'):
-        return True
-    elif positions[2][0] == positions[2][1] == positions[2][2] == ('X' or 'O'):
-        return True
-    elif positions[0][0] == positions[1][0] == positions[2][0] == ('X' or 'O'):
-        return True
-    elif positions[0][1] == positions[1][1] == positions[2][1] == ('X' or 'O'):
-        return True
-    elif positions[0][2] == positions[1][2] == positions[2][2] == ('X' or 'O'):
-        return True
-    elif positions[0][0] == positions[1][1] == positions[2][2] == ('X' or 'O'):
-        return True
-    elif positions[0][2] == positions[1][1] == positions[2][0] == ('X' or 'O'):
-        return True
-    elif draw is True:
-        return True
-    else:
-        return False
+
+    return False
+
 
 
 def player_input():
