@@ -12,11 +12,14 @@ PLAYER_MOVE = 1
 
 
 def print_board():
-    """Вывод доски для игры и дата файла"""
-    print(f'  {"-"*13}\n0 | {positions[0][0]} | {positions[0][1]} | {positions[0][2]} |'
-          f'\n  {"-"*13}\n1 | {positions[1][0]} | {positions[1][1]} | {positions[1][2]} |'
-          f'\n  {"-"*13}\n2 | {positions[2][0]} | {positions[2][1]} | {positions[2][2]} |'
-          f'\n  {"-"*13}\n    0   1   2')
+    """Вывод доски для игры в крестики-нолики"""
+    print("    0   1   2")
+    print("  " + "-" * 13)
+    for row in range(3):
+        print(row, end=" | ")
+        for col in range(3):
+            print(positions[row][col], end=" | ")
+        print("\n  " + "-" * 13)
 
 
 def check_draw():
@@ -69,6 +72,9 @@ def player_input():
             else:
                 raise ValueError
 
+            if positions[first_pos][second_pos] != '*':
+                print('Эта клетка уже занята, выберите другую')
+                valid_move = False
         except:
             print('Неверный ввод, попробуйте еще раз')
     return first_pos, second_pos
